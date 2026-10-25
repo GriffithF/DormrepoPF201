@@ -17,7 +17,7 @@ public class DatabaseInitializer {
                     password TEXT    NOT NULL,
                     role     TEXT    NOT NULL CHECK(role IN ('ADMIN', 'STAFF', 'TENANT')),
                     status   TEXT    NOT NULL DEFAULT 'PENDING'
-                                     CHECK(status IN ('PENDING', 'APPROVED', 'INACTIVE'))
+                                     CHECK(status IN ('PENDING', 'APPROVED', 'ACTIVE', 'INACTIVE'))
                 );
                 """;
 

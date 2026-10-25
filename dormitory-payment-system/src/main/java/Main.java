@@ -1,8 +1,8 @@
+import java.util.Scanner;
+
 import dao.DatabaseInitializer;
 import dao.UserDao;
 import ui.Authentication;
-
-import java.util.Scanner;
 
 public class Main {
 

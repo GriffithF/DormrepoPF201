@@ -1,8 +1,8 @@
 package ui;
 
-import model.User;
-
 import java.util.Scanner;
+
+import model.User;
 
 public class MainMenu {
 

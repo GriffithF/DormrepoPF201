@@ -1,10 +1,10 @@
 package ui;
 
-import dao.UserDao;
-import model.User;
-
 import java.util.Optional;
 import java.util.Scanner;
+
+import dao.UserDao;
+import model.User;
 
 public class Authentication {
 
@@ -46,7 +46,7 @@ public class Authentication {
 
     private void register() {
         System.out.println("\n========================================");
-        System.out.println("         REGISTER NEW ACCOUNT");
+        System.out.println("        REGISTER NEW ACCOUNT");
         System.out.println("========================================");
 
         System.out.print("Enter username: ");
@@ -103,7 +103,7 @@ public class Authentication {
 
     private void loginAndRoute() {
         System.out.println("\n========================================");
-        System.out.println("              LOGIN");
+        System.out.println("               LOGIN");
         System.out.println("========================================");
 
         System.out.print("Username: ");
@@ -125,11 +125,21 @@ public class Authentication {
         }
 
         User user = result.get();
+
+        boolean isAdmin = user.role().equalsIgnoreCase("ADMIN");
+        boolean isApproved = user.status().equalsIgnoreCase("APPROVED");
+
+        if (!isAdmin && !isApproved) {
+            System.out.println("\nLogin failed: Your account status is currently " + user.status() + ".");
+            System.out.println("Please wait for an administrator to approve your registration.");
+            return;
+        }
+
         System.out.println("\nLogin successful!");
         System.out.println("  Welcome, " + user.username() + " (" + user.role() + ")");
         System.out.println("  Account Status: " + user.status());
 
-        if (user.role().equalsIgnoreCase("ADMIN")) {
+        if (isAdmin) {
             adminMenu.show();
         } else {
             mainMenu.show(user);

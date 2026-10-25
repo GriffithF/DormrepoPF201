@@ -19,7 +19,7 @@ public class AdminMenu {
     public void show() {
         while (true) {
             System.out.println("\n========================================");
-            System.out.println("           ADMIN MENU");
+            System.out.println("             ADMIN MENU");
             System.out.println("========================================");
             System.out.println("1. View All System Users");
             System.out.println("2. View Pending Registrations");
