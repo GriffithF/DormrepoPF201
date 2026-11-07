@@ -140,7 +140,7 @@ public class Authentication {
         System.out.println("  Account Status: " + user.status());
 
         if (isAdmin) {
-            adminMenu.show();
+            adminMenu.show(user);
         } else {
             mainMenu.show(user);
         }
